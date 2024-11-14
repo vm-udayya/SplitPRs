@@ -1,19 +1,17 @@
-# SplitPRs
-If you endup with a feature branch in git with too many changes, the PR review might be a nightmare, so it's a good idea to make it smaller. But how to do this after you already have all the commits in a single branch?
+# Splitting the Big PR into small PRs 
+This document will guide you to ensure break the big PR into smaller PR as needed 
 
-Even worse, probably you have commits out of order, because you worked on a component, then another one, did some changes, came back to the same component again etc, all this while committing those changes to the same branch throughout the days, making it inviable to use cherry pick like indicated in this article.
+Below are some steps where you would be following to create small PRs and neat for review process to enable quick deployment:
 
-By following these steps you will have at the end a sequence of small branches that can then be used in sequential PRs:
-
-# 1. Commit and push your BIG branch (e.g: my-big-branch)
+# 1. Commit and push your branch which has lot of file with the PR (e.g: branchPR )
 This branch has lots of different changes that you want to split into separate branches for creating smaller PRs
 
-# 2. Checkout the base branch for your PR reviews (e.g: main)
+# 2. Checkout the base branch for your PR reviews (e.g: main/master/development)
 git checkout main
 git pull main
 
-# 3. Study how to split your big branch into smaller ones
-Keep in mind that you will create multiple branches, each one with small changes that later will become a separate PR
+# 3. Splitting the PR into smaller ones
+In this processs you will be creating multiple branches (with small changes) with respective PRs.
 Strategy 1: Each branch touches a different dir/component. e.g: “All files in dir /shared/formatter-utils”
 Strategy 2: Each branch has a group of files touched with the same objective. e.g.: “Enhancing README files of all services to stick to the new standards”
 Draw a sequence of branches you will create, from the least dependant to the most one. e.g.: "Readme files" -> "formatter-utils" -> "api-service1" -> "ui-service1"
